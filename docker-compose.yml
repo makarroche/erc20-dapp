@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build: ./dapp-erc20-frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+  api:
+    build: ./dapp-erc20-api
+    container_name: backend
+    ports:
+      - "5005:5005"
+  
+  database-postgres:
+    image: postgres:14.3-alpine
+    container_name: postgres
+    volumes:
+      - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./db/.pgdata:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+
+    environment:
+      - POSTGRES_DB:postgres
+      - POSTGRES_USER:postgres
+      - POSTGRES_PASSWORD:docker
+      - POSTGRES_HOST_AUTH_METHOD=trust
