@@ -2,5 +2,5 @@ The whole stack; Frontend, Backend and PostgresDB is dockerized, so to run you w
 
  docker compose up
 
-[![Untitled.png](https://i.postimg.cc/Qdv930mR/Untitled.png)](https://postimg.cc/yDXYhhwP)
+[![Untitled.png](https://i.postimg.cc/Y0y2xCyJ/Untitled.png)](https://postimg.cc/30mH8YhB)
 
