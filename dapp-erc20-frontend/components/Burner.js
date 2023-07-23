@@ -12,7 +12,7 @@ const Burner = ({ contractAddress, setStored }) => {
     "Tokens were not burnt correctly, make sure you have enough gas and please try again!";
   const burnTokensText = "Input your token amount";
   const baseExplorerUrl = "https://testnet.snowtrace.io/tx/";
-  const [tokenAmount, setTokenAmount] = useState("");
+  const [tokenAmount, setTokenAmount] = useState("0");
   const [error, setError] = useState();
   const { isConnected } = useAccount();
 
