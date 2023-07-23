@@ -1,20 +1,20 @@
-const pool = require('../config').pool;
+const pool = require("../config").pool;
 
-const  readBurnActions = (request, response) => {
-  pool.query(`SELECT * FROM burnactions ORDER BY timestamp DESC
-  LIMIT 10;`, (error, results) => {
-    if (error) {
-        response.status(400).send('Bad request');
+const readBurnActions = (request, response) => {
+  pool.query(
+    `SELECT * FROM burnactions ORDER BY timeofEntry DESC
+  LIMIT 10;`,
+    (error, results) => {
+      if (error) {
+        console.log(error);
+        throw error;
+      }
+      response.status(200).send(results);
     }
-    if (results == null) {
-        response.status(404).send("No rows yet");
-    }
-    else {
-        response.status(200).send(results);
-    }
-  })
-}
+  );
+ 
+};
 
 module.exports = {
-    readBurnActions
-}
+  readBurnActions,
+};

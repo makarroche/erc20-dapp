@@ -5,11 +5,15 @@ services:
     container_name: frontend
     ports:
       - "3000:3000"
+    networks:
+      - network-backend
   api:
     build: ./dapp-erc20-api
     container_name: backend
     ports:
       - "5005:5005"
+    networks:
+      - network-backend
   
   database-postgres:
     image: postgres:14.3-alpine
@@ -19,9 +23,13 @@ services:
       - ./db/.pgdata:/var/lib/postgresql
     ports:
       - "5432:5432"
-
+    networks: 
+     - network-backend
     environment:
       - POSTGRES_DB:postgres
       - POSTGRES_USER:postgres
       - POSTGRES_PASSWORD:docker
       - POSTGRES_HOST_AUTH_METHOD=trust
+
+networks:
+  network-backend:
