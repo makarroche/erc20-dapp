@@ -60,7 +60,7 @@ const DeployContract = ({
           transactionHash: hash,
           _address: address,
           explorerURL: `${baseExplorerUrl}${hash}`,
-          timestamp: `${Date.now()}`,
+          timeofEntry: `${Date.now()}`,
         };
         sendTransactionDataToPostgress(transactionInfo);
       } catch (error) {

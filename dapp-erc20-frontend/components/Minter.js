@@ -33,7 +33,7 @@ const Minter = ({ contractAddress, setStored }) => {
         amount: tokenAmount,
         recipientAddress: receiverAddress,
         explorerURL: `${baseExplorerUrl}${data?.hash}`,
-        timestamp: `${Date.now()}`,
+        timeofEntry: `${Date.now()}`,
       };
       sendTransactionDataToPostgress(transactionInfo);
     } else if (isError) {

@@ -32,7 +32,7 @@ const Burner = ({ contractAddress, setStored }) => {
         transactionHash: data?.hash,
         amount: tokenAmount,
         explorerURL: `${baseExplorerUrl}${data?.hash}`,
-        timestamp: `${Date.now()}`,
+        timeofEntry: `${Date.now()}`,
       };
       sendTransactionDataToPostgress(transactionInfo);
     } else if (isError) {
